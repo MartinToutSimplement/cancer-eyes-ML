@@ -1,25 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <header>
+      Web-Eyes
+    </header>
+    <ImageUpload />
+  </div>
 </template>
 
 <script>
+import ImageUpload from './components/ImageUpload.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    ImageUpload
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Global styles pour un design épuré */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+header {
+  background-color: #2c3e50;
+  color: white;
+  font-size: 24px;
+  padding: 20px 0;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
