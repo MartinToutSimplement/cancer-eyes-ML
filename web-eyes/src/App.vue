@@ -1,18 +1,30 @@
+
 <template>
   <div id="app">
     <header>
       Web-Eyes
     </header>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
     <ImageUpload />
   </div>
+
+<!-- <template>
+  <div id="app">
+    <header>
+      Web-Eyes
+    </header>
+    <ImageUpload />
+  </div> -->
 </template>
 
 <script>
 import ImageUpload from './components/ImageUpload.vue';
+import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   components: {
-    ImageUpload
+    ImageUpload,
+    HelloWorld
   }
 };
 </script>
