@@ -1,0 +1,24 @@
+web-eyes/.DS_Store
+web-eyes/node_modules/
+web-eyes/dist/
+
+# local env files
+web-eyes/.env.local
+web-eyes/.env.*.local
+
+# Log files
+web-eyes/npm-debug.log*
+web-eyes/yarn-debug.log*
+web-eyes/yarn-error.log*
+web-eyes/pnpm-debug.log*
+
+# Editor directories and files
+web-eyes/.idea/
+web-eyes/.vscode/
+web-eyes/*.suo
+web-eyes/*.ntvs*
+web-eyes/*.njsproj
+web-eyes/*.sln
+web-eyes/*.sw?
+
+eyes-dataset
