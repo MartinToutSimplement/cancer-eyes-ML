@@ -38,7 +38,7 @@ def predict():
     
     # result = 'Cancerous' if prediction[0][0] > 0.5 else 'Healthy'
     result = prediction[0][0]
-
+    result = float(result)
     return jsonify({'result': result})
 
 @app.route('/api/message')

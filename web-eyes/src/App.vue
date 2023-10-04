@@ -1,5 +1,6 @@
 <template>
   <div>
+  <div>
     <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,12 +57,19 @@
   </section>
 
 </body>
-
+<ImageUploader />
+</div>
 </template>
 
 <script>
+import ImageUploader from './components/ImageUpload.vue';
 export default {
+  name: 'App',
+  components: {
+    ImageUploader
+  },
   data() {
+    
     return {
       scrollPosition: 0
     };
