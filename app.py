@@ -3,6 +3,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import numpy as np
 import io
+from flask_cors import CORS
 
 app = Flask(__name__, static_folder="../web-eyes/dist", static_url_path="/")
 
@@ -11,7 +12,11 @@ def index():
     return app.send_static_file('index.html')
 
 
+
+
 app = Flask(__name__)
+CORS(app)
+
 
 # Chargement du modèle
 model_path = 'models/eyes_model.h5'
