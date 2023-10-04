@@ -1,66 +1,74 @@
 <template>
   <div>
-    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, intial-scale=1.0">
-    <title>Parallax Scrolling Website | Codehal</title>
-    <link rel="stylesheet" href="style.css">
-    </head>
+    <div>
+
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Parallax Scrolling Website | Codehal</title>
+        <link rel="stylesheet" href="style.css">
+      </head>
+    </div>
+
+    <body>
+
+
+      <header>
+
+      </header>
+
+      <section class="parallax">
+
+        <h2 id="text" ref="parallaxText"> Eye Cancer Project</h2>
+        <img src="microscope.gif" id="animatedGif" ref="parallaxGif">
+
+      </section>
+
+      <section class="sec">
+        <h2>Parallax Scrolling Website</h2>
+        <p>
+
+
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero!
+          Alias eius, unde corporis error natus ex provident! <br><br>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero!
+          Alias eius, unde corporis error natus ex provident! <br><br>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero!
+          Alias eius, unde corporis error natus ex provident! <br><br>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero!
+          Alias eius, unde corporis error natus ex provident! <br><br>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero!
+          Alias eius, unde corporis error natus ex provident! <br><br>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero!
+          Alias eius, unde corporis error natus ex provident! <br><br>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero!
+          Alias eius, unde corporis error natus ex provident! <br><br>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero!
+          Alias eius, unde corporis error natus ex provident! <br><br>
+        </p>
+      </section>
+
+    </body>
+    <ImageUpload />
   </div>
-
-  <body>
-    
-
-  <header>
-
-  </header>
-
-  <section class="parallax">
-    
-    <h2 id="text" ref="parallaxText"> Eye Cancer Project</h2>
-    <img src="microscope.gif" id="animatedGif" ref="parallaxGif">
-
-  </section>
-
-  <section class="sec">
-    <h2>Parallax Scrolling Website</h2>
-    <p>
-
-      
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-    </p>
-  </section>
-
-</body>
-
 </template>
 
 <script>
+import ImageUpload from './components/ImageUpload.vue';
 export default {
+  name: 'App',
+  components: {
+    ImageUpload
+  },
   data() {
     return {
       scrollPosition: 0
@@ -77,14 +85,14 @@ export default {
       this.scrollPosition = window.scrollY;
 
       if (!this.$refs.parallaxText) {
-    console.error("The parallaxText element is missing!");
-    return;
-  }
+        console.error("The parallaxText element is missing!");
+        return;
+      }
 
-  if (!this.$refs.parallaxGif) {
+      if (!this.$refs.parallaxGif) {
         console.error("The parallaxGif element is missing!");
         return;
-    }
+      }
 
       // Adjust these values based on your design and preference
       const maxScroll = 800; // Maximum scroll value where the effect ends
@@ -168,12 +176,13 @@ header {
 }
 
 @keyframes moveFromRight {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 
@@ -183,13 +192,15 @@ header {
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  animation: fadeIn 1s forwards 1s; /* 2s duration, starts after 1s delay */
+  animation: fadeIn 1s forwards 1s;
+  /* 2s duration, starts after 1s delay */
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -222,14 +233,12 @@ header {
 }
 
 #animatedGif {
-    position: absolute;
-    top: 50%; 
-    right: 0; /* Ici, nous utilisons 'right' au lieu de 'left' pour positionner l'image à droite */
-    width: 30%; 
-    transform: translateY(-50%);
-    animation: moveFromRight 2s forwards;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  /* Ici, nous utilisons 'right' au lieu de 'left' pour positionner l'image à droite */
+  width: 30%;
+  transform: translateY(-50%);
+  animation: moveFromRight 2s forwards;
 }
-
-
-
 </style>

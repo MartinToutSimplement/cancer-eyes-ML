@@ -1,4 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import img_to_array, load_img
+import numpy as np
 
 app = Flask(__name__, static_folder="../web-eyes/dist", static_url_path="/")
 
@@ -6,10 +9,6 @@ app = Flask(__name__, static_folder="../web-eyes/dist", static_url_path="/")
 def index():
     return app.send_static_file('index.html')
 
-from flask import Flask, request, jsonify
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing.image import img_to_array, load_img
-import numpy as np
 
 app = Flask(__name__)
 
