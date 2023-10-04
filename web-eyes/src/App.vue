@@ -1,4 +1,5 @@
 <template>
+  <div class="main">
   <div>
     <head>
     <meta charset="utf-8">
@@ -55,7 +56,7 @@
   </section>
 
 </body>
-
+</div>
 </template>
 
 <script>
