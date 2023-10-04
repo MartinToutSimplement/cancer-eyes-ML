@@ -1,47 +1,98 @@
-
 <template>
-  <div id="app">
-    <header>
-      Web-Eyes
-    </header>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <ImageUpload />
+  <div>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>Parallax Scrolling Website | Codehal</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
   </div>
 
-<!-- <template>
-  <div id="app">
-    <header>
-      Web-Eyes
-    </header>
-    <ImageUpload />
-  </div> -->
+  <header>
+    <h2 class="logo">Logo</h2>
+    <nav class="navigation">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Service</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="parallax">
+    <h2 id="text"> Parallax Website</h2>
+  </section>
+
 </template>
 
 <script>
-import ImageUpload from './components/ImageUpload.vue';
-import HelloWorld from './components/HelloWorld.vue';
-
-export default {
-  components: {
-    ImageUpload,
-    HelloWorld
-  }
-};
+// Contenu du fichier script.js ici
 </script>
 
-<style>
-/* Global styles pour un design épuré */
-body {
-  font-family: 'Arial', sans-serif;
+<style scoped>
+* {
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
+body {
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 header {
-  background-color: #2c3e50;
-  color: white;
-  font-size: 24px;
-  padding: 20px 0;
-  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
 }
+
+.logo {
+  font-size: 2em;
+  color: #359381;
+  pointer-events: none;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #359381;
+  padding: 6px 15px;
+  border-radius: 20px;
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+.navigation a:hover {
+  background-color: #359381;
+  color: #fff;
+}
+
+.navigation a.active {
+  background-color: #359381;
+  color: #fff;
+}
+
+.parallax {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#text {
+  position: absolute;
+  font-size: 5em;
+  color: #359381;
+}
+
+
 </style>
