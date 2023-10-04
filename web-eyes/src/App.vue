@@ -1,5 +1,4 @@
 <template>
-  <div class="main">
   <div>
     <head>
     <meta charset="utf-8">
@@ -18,8 +17,9 @@
   </header>
 
   <section class="parallax">
-    <img src="science.jpg" id="science">
+    
     <h2 id="text" ref="parallaxText"> Eye Cancer Project</h2>
+    <img src="microscope.gif" id="animatedGif" ref="parallaxGif">
 
   </section>
 
@@ -56,7 +56,7 @@
   </section>
 
 </body>
-</div>
+
 </template>
 
 <script>
@@ -81,6 +81,11 @@ export default {
     return;
   }
 
+  if (!this.$refs.parallaxGif) {
+        console.error("The parallaxGif element is missing!");
+        return;
+    }
+
       // Adjust these values based on your design and preference
       const maxScroll = 800; // Maximum scroll value where the effect ends
       const fadeStart = 400; // Scroll value where the fade effect starts
@@ -91,6 +96,9 @@ export default {
 
         this.$refs.parallaxText.style.transform = `translateY(${translateYValue}px)`;
         this.$refs.parallaxText.style.opacity = opacityValue;
+
+        this.$refs.parallaxGif.style.transform = `translateY(${translateYValue}px)`;
+        this.$refs.parallaxGif.style.opacity = opacityValue;
       }
     }
   }
@@ -108,7 +116,7 @@ export default {
 }
 
 body {
-  background-color: #f9f9f9;
+  background-color: #87CEEB;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -159,6 +167,16 @@ header {
   height: 100vh;
 }
 
+@keyframes moveFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
 #text {
   position: absolute;
   font-size: 5em;
@@ -187,7 +205,7 @@ header {
 
 .sec {
   position: relative;
-  background: #003329;
+  background: #4682B4;
   padding: 100px;
 }
 
@@ -202,5 +220,16 @@ header {
   color: #fff;
   font-weight: 300;
 }
+
+#animatedGif {
+    position: absolute;
+    top: 50%; 
+    right: 0; /* Ici, nous utilisons 'right' au lieu de 'left' pour positionner l'image à droite */
+    width: 30%; 
+    transform: translateY(-50%);
+    animation: moveFromRight 2s forwards;
+}
+
+
 
 </style>
