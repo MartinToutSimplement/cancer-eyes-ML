@@ -1,11 +1,14 @@
 <template>
+
+  <div class="main">
   <div>
+
     <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, intial-scale=1.0">
-    <title>Parallax Scrolling Website | Codehal</title>
-    <link rel="stylesheet" href="style.css">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, intial-scale=1.0">
+      <title>Parallax Scrolling Website | Codehal</title>
+      <link rel="stylesheet" href="style.css">
     </head>
   </div>
 
@@ -23,10 +26,21 @@
     <h2 id="text"> Parallax Website</h2>
   </section>
 
+  <!-- <div class="bouton">
+    <ImageUpload />
+  </div> -->
+</div>
 </template>
 
 <script>
-// Contenu du fichier script.js ici
+import ImageUpload from './components/ImageUpload.vue';
+
+export default {
+  name: 'App',
+  components: {
+    ImageUpload
+  }
+};
 </script>
 
 <style scoped>
@@ -93,6 +107,4 @@ header {
   font-size: 5em;
   color: #359381;
 }
-
-
 </style>

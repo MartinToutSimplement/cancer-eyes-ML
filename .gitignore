@@ -22,3 +22,5 @@ web-eyes/*.sln
 web-eyes/*.sw?
 
 eyes-dataset
+
+models/eyes_model.h5
