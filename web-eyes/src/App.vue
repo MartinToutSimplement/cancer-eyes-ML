@@ -17,6 +17,7 @@
 
   </header>
 
+  <p id="authorText" ref="">Présenté par Ahyl PRADHAN et Martin LUCAS</p>
   <img src="scientific.gif" alt="Description du second GIF" id="secondAnimatedGif" ref="secondParallaxGif">
   <img src="microscope.gif" id="animatedMicroscope" ref="parallaxGif">
 
@@ -28,40 +29,43 @@
 
   </section>
 
-  <section class="sec">
+  <section class="sec" ref="sec">
     <h2>Parallax Scrolling Website</h2>
     <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
+      Alias eius, unde corporis error natus ex provident! <br><br>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
+      Alias eius, unde corporis error natus ex provident! <br><br>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
+      Alias eius, unde corporis error natus ex provident! <br><br>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
+      Alias eius, unde corporis error natus ex provident! <br><br>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
+      Alias eius, unde corporis error natus ex provident! <br><br>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
+      Alias eius, unde corporis error natus ex provident! <br><br>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
+      Alias eius, unde corporis error natus ex provident! <br><br>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
+      Alias eius, unde corporis error natus ex provident! <br><br>
 
-      
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
     </p>
   </section>
 
+  <section class="third">
+        <ImageUploader />
+  </section>
+
 </body>
-<ImageUploader />
+
 </div>
 </template>
 
@@ -75,7 +79,7 @@ export default {
   data() {
     
     return {
-      scrollPosition: 0
+      scrollPosition: 0,
     };
   },
   mounted() {
@@ -188,6 +192,42 @@ header {
     }
 }
 
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.sec h2 {
+
+  animation: slideInFromLeft 7s forwards;
+}
+
+#authorText {
+    position: absolute;
+    top: 20px; 
+    right: 0;
+    font-size: 0.5em;  
+    z-index: 10; 
+    opacity: 0;  
+}
+
+#authorText {
+  position: absolute;
+  font-size: 2em;
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  bottom: 0px;
+  left: 8px;
+  width: 20%; 
+  z-index: 10; 
+  animation: fadeIn 1s forwards 1s; /* 2s duration, starts after 1s delay */
+}
+
 
 #text {
   position: absolute;
@@ -248,6 +288,11 @@ header {
     width: 20%; 
     z-index: 10;  
 }
+
+#third {
+  background: #4169E1;
+}
+
 
 
 </style>
