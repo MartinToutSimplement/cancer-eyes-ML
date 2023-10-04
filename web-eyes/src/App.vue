@@ -17,10 +17,14 @@
 
   </header>
 
+  <img src="scientific.gif" alt="Description du second GIF" id="secondAnimatedGif" ref="secondParallaxGif">
+  <img src="microscope.gif" id="animatedMicroscope" ref="parallaxGif">
+
   <section class="parallax">
     
     <h2 id="text" ref="parallaxText"> Eye Cancer Project</h2>
-    <img src="microscope.gif" id="animatedMicroscope" ref="parallaxGif">
+    
+
 
   </section>
 
@@ -236,4 +240,14 @@ header {
     width: 30%; 
     animation: moveFromRight 2s forwards;
 }
+
+#secondAnimatedGif {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 20%; 
+    z-index: 10;  
+}
+
+
 </style>
