@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h2>Upload an eye file for the analysis</h2>
       <!-- Hide the original input and add a label to act as the button -->
       <input type="file" id="fileUpload" ref="fileInput" @change="uploadImage" style="display: none" />
       <center>
@@ -29,6 +28,7 @@
         const imageFile = this.$refs.fileInput.files[0];
         const formData = new FormData();
         formData.append('file', imageFile);
+        this.$emit('imageUploaded');
   
         try {
           const response = await axios.post('http://localhost:5000/predict', formData);
@@ -112,8 +112,11 @@
 
 /* Styling for image and text */
 img {
-  border-radius: 8px;
-  margin-top: 24px;
+  max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
+  max-height: 400px; /* Limite la hauteur de l'image */
+  display: block; /* Assurez-vous que l'image s'affiche en tant que bloc */
+  margin: 0 auto; /* Centre l'image horizontalement */
+  border-radius: 8px; /* Coins arrondis pour l'image */
 }
 
 span {
@@ -127,6 +130,16 @@ h2 {
   font-size: 3em;
   color: #fff;
   margin-bottom: 10px;
+}
+
+div[v-if="uploadedImage"] {
+  max-width: 100%; /* Assurez-vous qu'il ne dépasse pas la largeur du conteneur parent */
+  overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
+  border-radius: 8px; /* Coins arrondis pour le conteneur */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile pour le conteneur */
+  margin-top: 24px; /* Espacement au-dessus du conteneur */
+  padding: 16px; /* Espacement à l'intérieur du conteneur */
+  background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
 }
 
 
