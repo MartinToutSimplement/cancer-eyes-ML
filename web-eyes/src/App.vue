@@ -1,298 +1,307 @@
 <template>
-  <div>
-  <div>
-    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, intial-scale=1.0">
-    <title>Parallax Scrolling Website | Codehal</title>
-    <link rel="stylesheet" href="style.css">
-    </head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <div id="app">
+    <nav>
+      <div class="nav-container">
+        <a href="#" class="brand">Eye Cancer Project</a>
+        <ul class="nav-links">
+          <li><a href="#section1">Home</a></li>
+          <li><a href="#section2">Upload</a></li>
+          <!-- Vous pouvez ajouter d'autres liens ici si nécessaire -->
+        </ul>
+      </div>
+    </nav>
+
+
+    <!-- Section 1 -->
+    <section id="section1" style="margin:0; padding:0;">
+      <transition name="fade">
+        <h1 v-if="showProjectTitle" @click="toggleContent" class="fade-in">Eye Cancer Project</h1>
+        <p v-else @click="toggleContent">Your paragraph content here...</p>
+      </transition>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="section2" style="margin:0; padding:0;">
+      <h1>Upload an eye file for the analysis</h1>
+      <template v-if="!imageIsUploaded">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
+          laudantium veritatis asperiores amet dolore veniam.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
+          laudantium veritatis asperiores amet dolore veniam.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
+          laudantium veritatis asperiores amet dolore veniam.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
+          laudantium veritatis asperiores amet dolore veniam.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
+          laudantium veritatis asperiores amet dolore veniam.</p>
+      </template>
+      
+
+    </section>
+    <EyeUpload id="EyeUpload"/>
   </div>
-
-  <body>
-    
-
-  <header>
-
-  </header>
-
-  <p id="authorText" ref="">Présenté par Ahyl PRADHAN et Martin LUCAS</p>
-  <img src="scientific.gif" alt="Description du second GIF" id="secondAnimatedGif" ref="secondParallaxGif">
-  <img src="microscope.gif" id="animatedMicroscope" ref="parallaxGif">
-
-  <section class="parallax">
-    
-    <h2 id="text" ref="parallaxText"> Eye Cancer Project</h2>
-    
-
-
-  </section>
-
-  <section class="sec" ref="sec">
-    <h2>Parallax Scrolling Website</h2>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-      Nihil possimus consequatur soluta, labore nisi molestias aut dolor, velit, sequi cumque vel vero! 
-      Alias eius, unde corporis error natus ex provident! <br><br>
-
-    </p>
-  </section>
-
-  <section class="third">
-        <ImageUploader />
-  </section>
-
-</body>
-
-</div>
 </template>
 
 <script>
-import ImageUploader from './components/ImageUpload.vue';
+import EyeUpload from './components/EyeUpload.vue';
+// import ImageUploader from './components/ImageUpload.vue';
 export default {
   name: 'App',
   components: {
-    ImageUploader
+    // ImageUploader,
+    EyeUpload
   },
   data() {
-    
     return {
-      scrollPosition: 0,
+      showParagraph: false,
+      showGif: false,
+      imageIsUploaded: false,
+      showProjectTitle: true
     };
   },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
-  beforeMount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  },
   methods: {
-    handleScroll() {
-      this.scrollPosition = window.scrollY;
-
-      if (!this.$refs.parallaxText) {
-    console.error("The parallaxText element is missing!");
-    return;
-  }
-
-  if (!this.$refs.parallaxGif) {
-        console.error("The parallaxGif element is missing!");
-        return;
-    }
-
-      // Adjust these values based on your design and preference
-      const maxScroll = 800; // Maximum scroll value where the effect ends
-      const fadeStart = 400; // Scroll value where the fade effect starts
-
-      if (this.scrollPosition <= maxScroll) {
-        const translateYValue = this.scrollPosition * 1; // Adjust the multiplier for more or less movement
-        const opacityValue = this.scrollPosition >= fadeStart ? 1 - (this.scrollPosition - fadeStart) / (maxScroll - fadeStart) : 1;
-
-        this.$refs.parallaxText.style.transform = `translateY(${translateYValue}px)`;
-        this.$refs.parallaxText.style.opacity = opacityValue;
-
-        this.$refs.parallaxGif.style.transform = `translateY(${translateYValue}px)`;
-        this.$refs.parallaxGif.style.opacity = opacityValue;
-      }
+    toggleContent() {
+      this.showProjectTitle = !this.showProjectTitle;
+    },
+    handleImageUpload() {
+      this.imageIsUploaded = true;
     }
   }
-};
+}
 </script>
 
 
-
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+/* Styles globaux */
 
 body {
-  background-color: #87CEEB;
-  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
   overflow-x: hidden;
+  line-height: 1.6;
+  background-color: #f4f4f4;
 }
 
-header {
-  position: absolute;
+#app {
+  width: 100%;
+  background: linear-gradient(to bottom, #8AB0AB, #3E505B, #26413C, #1A1D1A, #03120E);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 30px 100px;
+  padding: 15px 20px;
+  background-color: rgba(10, 10, 10, 0.95);
+  /* Fond presque opaque */
+  backdrop-filter: blur(10px);
+  /* Effet de flou pour le fond */
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* Ombre douce en bas */
+  transition: background-color 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  z-index: 100;
 }
 
-.logo {
-  font-size: 2em;
-  color: #359381;
-  pointer-events: none;
-  margin-right: 270px;
-}
-
-.navigation a {
+.brand {
+  /* color: var(--primary-color); */
+  color: #fff;
+  font-size: 1.7em;
   text-decoration: none;
-  color: #359381;
-  padding: 6px 15px;
-  border-radius: 20px;
-  margin: 0 10px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 1px;
+  /* Espacement des lettres pour un look premium */
+  transition: color 0.3s ease;
 }
 
-.navigation a:hover {
-  background-color: #359381;
-  color: #fff;
+.brand:hover {
+  color: grey;
+  /* Changement de couleur au survol */
 }
 
-.navigation a.active {
-  background-color: #359381;
-  color: #fff;
-}
-
-.parallax {
-  position: relative;
+.nav-links {
+  list-style: none;
+  padding: 0;
   display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  /* Poids de police semi-gras */
+  padding: 5px 10px;
+  /* Espacement autour des liens pour un meilleur toucher/clic */
+  border-radius: 5px;
+  /* Coins arrondis pour les effets de survol */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: grey;
+  /* Fond doré au survol */
+  color: #000;
+  /* Texte noir au survol */
+}
+
+/* Pour les écrans plus petits, augmentez la taille des liens pour une meilleure expérience tactile */
+@media (max-width: 768px) {
+  .nav-links li a {
+    padding: 10px 15px;
+    font-size: 1.1em;
+  }
+}
+
+#EyeUpload {
+  transition: background-color 1s, transform 0.5s;
+}
+
+#EyeUpload::before {
+  pointer-events: none; /* Ajoutez cette ligne */
+  content: ""; /* Nécessaire pour rendre le pseudo-élément visible */
+  position: absolute; /* Positionne le pseudo-élément par rapport à la section */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Noir transparent */
+  transition: background-color 0.3s ease; /* Transition pour un effet doux */
+}
+
+#EyeUpload:hover::before {
+  background-color: rgba(0, 0, 0, 0); /* Assombrit l'image lors du survol */
+}
+
+#EyeUpload:hover {
+  transform: scale(1.02);
+  /* background-color: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05)); */
+}
+section {
+  width: 100%;
+  min-height: 100vh;
+  /* Changed from height to min-height */
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  overflow: hidden;
+  transition: background-color 1s, transform 0.5s;
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  /* mettre une image en fond */
+  background-image: url("./assets/fond1.jpg");
+  background-size: cover; /* Assurez-vous que l'image couvre la section entière */
+  background-position: center; /* Centrez l'image */
+  background-repeat: no-repeat; /* Empêchez l'image de se répéter */
+  border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  /* Added for potential absolute positioned children */
 }
 
-@keyframes moveFromRight {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+section::before {
+  pointer-events: none; /* Ajoutez cette ligne */
+  content: ""; /* Nécessaire pour rendre le pseudo-élément visible */
+  position: absolute; /* Positionne le pseudo-élément par rapport à la section */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Noir transparent */
+  transition: background-color 0.3s ease; /* Transition pour un effet doux */
 }
 
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+section:hover::before {
+  background-color: rgba(0, 0, 0, 0); /* Assombrit l'image lors du survol */
 }
 
-.sec h2 {
-
-  animation: slideInFromLeft 7s forwards;
+section:hover {
+  transform: scale(1.02);
+  /* background-color: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05)); */
 }
 
-#authorText {
-    position: absolute;
-    top: 20px; 
-    right: 0;
-    font-size: 0.5em;  
-    z-index: 10; 
-    opacity: 0;  
-}
-
-#authorText {
-  position: absolute;
-  font-size: 2em;
-  color: #000000;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  bottom: 0px;
-  left: 8px;
-  width: 20%; 
-  z-index: 10; 
-  animation: fadeIn 1s forwards 1s; /* 2s duration, starts after 1s delay */
-}
-
-
-#text {
-  position: absolute;
+h1 {
   font-size: 5em;
+  margin-bottom: 30px;
+  cursor: pointer;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  animation: fadeIn 1s forwards 1s; /* 2s duration, starts after 1s delay */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, color 0.3s;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  /* Utilisation d'un poids de police plus lourd pour un impact visuel */
+}
+
+h1:hover {
+  transform: scale(1.08);
+  color: #FFD700;
+  /* Gold */
+}
+
+p {
+  font-weight: 300;
+  max-width: 800px;
+  text-align: justify;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.808);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, transform 0.3s;
+  /* Added transition */
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.521);
+    transform: translateY(-5px);
+  }
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-.parallax img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
+html {
+  scroll-behavior: smooth;
 }
 
-.sec {
-  position: relative;
-  background: #4682B4;
-  padding: 100px;
+.fade-enter-active,
+.fade-leave-active {
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s, color 0.5s;
+  /* perspective: 1000px; */
 }
 
-.sec h2 {
-  font-size: 3em;
-  color: #fff;
-  margin-bottom: 10px;
-}
+.fade-enter,
+.fade-leave-to
 
-.sec p {
-  font-size: 1em;
-  color: #fff;
-  font-weight: 300;
-}
-
-#animatedMicroscope {
-    position: absolute;
-    top: 0;
-    right: 0; 
-    width: 30%; 
-    animation: moveFromRight 2s forwards;
-}
-
-#secondAnimatedGif {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 20%; 
-    z-index: 10;  
-}
-
-#third {
-  background: #4169E1;
-}
-
-
-
-</style>
+/* .fade-leave-active in <2.1.8 */
+  {
+  opacity: 0;
+  transform: scale(0.9) rotateX(10deg);
+  color: #FFD700;
+  /* Gold */
+}</style>
