@@ -10,6 +10,15 @@
       <div v-if="uploadedImage">
         <img :src="uploadedImage" alt="Uploaded Eye" width="150" />
       </div>
+      <div v-if="result" class="result-container">
+        <div class="progress-bar">
+            <div class="progress-fill" :style="{ width: (result * 100) + '%' }">
+                <!-- <span class="percentage-label">{{ (result * 100).toFixed(0) }}%</span> -->
+            </div>
+        </div>
+        <span class="resultspan" v-if="result >= 0.75">The result suggests a Non-cancerous condition with a confidence of {{ (result * 100).toFixed(2) }}%.</span>
+        <span class="resultspan" v-else>The result suggests a Cancerous condition with a confidence of {{ ((1 - result) * 100).toFixed(2) }}%. <br> We advise you to consult a doctor for further clarification.</span>
+    </div>
     </div>
 </template>
   
@@ -29,11 +38,13 @@
         const formData = new FormData();
         formData.append('file', imageFile);
         this.$emit('imageUploaded');
+        this.$emit('imageUploaded');
   
         try {
           const response = await axios.post('http://localhost:5000/predict', formData);
         //   this.result = response.data.result === "1" ? "Cancéreux" : "Non cancéreux";
           this.result = response.data.result;
+          console.log(this.result)
           this.uploadedImage = URL.createObjectURL(imageFile);
         } catch (error) {
           console.error("Error during the diagnosis:", error);
@@ -48,6 +59,18 @@
 * {
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
+}
+
+.resultspan{
+  color: #FFF;
+  font-weight: 700;
+  text-align: center;
+  /* display: flex;
+  align-items: center; 
+  justify-content: center; 
+  height: 100%;
+  width: 100%;
+  position: absolute; */
 }
 
 /* Styling the label to look like a modern button */
@@ -117,6 +140,11 @@ img {
   display: block; /* Assurez-vous que l'image s'affiche en tant que bloc */
   margin: 0 auto; /* Centre l'image horizontalement */
   border-radius: 8px; /* Coins arrondis pour l'image */
+  max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
+  max-height: 400px; /* Limite la hauteur de l'image */
+  display: block; /* Assurez-vous que l'image s'affiche en tant que bloc */
+  margin: 0 auto; /* Centre l'image horizontalement */
+  border-radius: 8px; /* Coins arrondis pour l'image */
 }
 
 span {
@@ -142,5 +170,39 @@ div[v-if="uploadedImage"] {
   background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
 }
 
+div[v-if="uploadedImage"] {
+  max-width: 100%; /* Assurez-vous qu'il ne dépasse pas la largeur du conteneur parent */
+  overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
+  border-radius: 8px; /* Coins arrondis pour le conteneur */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile pour le conteneur */
+  margin-top: 24px; /* Espacement au-dessus du conteneur */
+  padding: 16px; /* Espacement à l'intérieur du conteneur */
+  background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+}
+.result-container {
+    margin-top: 30px;
+}
 
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient(45deg, #6AB1D7, #33D9B2);
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+.percentage-label {
+    color: #FFF;
+    font-weight: 700;
+    display: flex;
+    align-items: center;  /* Aligner verticalement au centre */
+    justify-content: center;  /* Aligner horizontalement au centre */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
 </style>
