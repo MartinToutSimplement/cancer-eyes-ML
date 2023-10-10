@@ -15,36 +15,25 @@
 
 
     <!-- Section 1 -->
-    <section id="section1" style="margin:0; padding:0;">
-      <transition name="fade">
-        <h1 v-if="showProjectTitle" @click="toggleContent" class="fade-in">Eye Cancer Project</h1>
-        <p v-else @click="toggleContent">Your paragraph content here...</p>
-      </transition>
-    </section>
+<section id="section1" style="margin:0; padding:0;">
+  <transition name="fade">
+    <h1 v-if="showProjectTitle" @click="toggleContent" class="fade-in">Eye Cancer Project</h1>
+    <p v-else @click="toggleContent">Welcome to the Eye Cancer Project. Our goal is to identify and analyze signs of eye cancer through modern technology.</p>
+  </transition>
+</section>
 
-    <!-- Section 2 -->
-    <section id="section2" style="margin:0; padding:0;">
-      <h1 href="#EyeUpload" @click.prevent="smoothScroll('EyeUpload')">Upload an eye file for the analysis</h1>
-      <template v-if="!imageIsUploaded">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
-          laudantium veritatis asperiores amet dolore veniam.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
-          laudantium veritatis asperiores amet dolore veniam.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
-          laudantium veritatis asperiores amet dolore veniam.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
-          laudantium veritatis asperiores amet dolore veniam.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Ad iure asperiores porro quidem harum voluptate velit illum maxime quas, modi earum! Nostrum doloremque aliquam,
-          laudantium veritatis asperiores amet dolore veniam.</p>
-      </template>
-      
+<!-- Section 2 -->
+<section id="section2" style="margin:0; padding:0;">
+  <h1 href="#EyeUpload" @click.prevent="smoothScroll('EyeUpload')">Upload an eye file for analysis</h1>
+  <template v-if="!imageIsUploaded">
+    <p>Our technology aids in early detection and diagnosis of eye cancer. By analyzing the uploaded images, our algorithms search for anomalies and potential signs of the disease.</p>
+    <p>Early detection is crucial in ensuring better treatment outcomes and minimizing potential harm. This project seeks to harness the power of technology in the fight against eye cancer.</p>
+    <p>Your data privacy and security are paramount to us. All uploads are encrypted and processed securely. We don't store any personal information or the images beyond the analysis period.</p>
+    <p>We encourage you to consult a healthcare professional for a comprehensive diagnosis. Our platform serves as a supplementary tool, and while we strive for accuracy, we cannot guarantee it.</p>
+    <p>Join us in our mission to combat eye cancer through technology. Your participation can make a difference.</p>
+  </template>
+</section>
 
-    </section>
     <EyeUpload id="EyeUpload"/>
   </div>
 </div>
