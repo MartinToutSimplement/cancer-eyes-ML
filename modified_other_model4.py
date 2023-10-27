@@ -10,7 +10,6 @@ from tqdm import tqdm
 from joblib import dump
 import matplotlib.pyplot as plt
 
-# Chemins de fichiers
 train_csv_path = "eyes-dataset/Training_Set/Training_Set/RFMiD_Training_Labels.csv"
 validation_csv_path = "eyes-dataset/Evaluation_Set/Evaluation_Set/RFMiD_Validation_Labels.csv"
 test_csv_path = "eyes-dataset/Test_Set/Test_Set/RFMiD_Testing_Labels.csv"
@@ -43,7 +42,6 @@ train_images, train_labels = preprocess_data(train_labels, train_dir)
 validation_images, validation_labels = preprocess_data(validation_labels, validation_dir)
 test_images, test_labels = preprocess_data(test_labels, test_dir)
 
-# This dictionary will hold the validation scores for each model
 validation_scores = {}
 
 # Random Forest
@@ -80,7 +78,6 @@ rf_pca.fit(train_images_pca, train_labels)
 validation_accuracy_rf_pca = rf_pca.score(validation_images_pca, validation_labels)
 validation_scores["PCA + Random Forest"] = validation_accuracy_rf_pca
 
-# Plotting the validation scores
 plt.figure(figsize=(10, 6))
 plt.bar(validation_scores.keys(), validation_scores.values(), color=['blue', 'green', 'red', 'cyan', 'purple'])
 plt.ylabel('Accuracy')

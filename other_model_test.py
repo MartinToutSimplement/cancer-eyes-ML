@@ -9,7 +9,6 @@ from sklearn.metrics import accuracy_score
 from tensorflow.keras.callbacks import EarlyStopping
 
 
-# Chemins de fichiers
 train_csv_path = "eyes-dataset/Training_Set/Training_Set/RFMiD_Training_Labels.csv"
 validation_csv_path = "eyes-dataset/Evaluation_Set/Evaluation_Set/RFMiD_Validation_Labels.csv"
 test_csv_path = "eyes-dataset/Test_Set/Test_Set/RFMiD_Testing_Labels.csv"
@@ -31,7 +30,7 @@ train_data = datagen.flow_from_dataframe(dataframe=train_labels, directory=train
 validation_data = datagen.flow_from_dataframe(dataframe=validation_labels, directory=validation_dir, x_col="ID", y_col="Disease_Risk", class_mode="binary", target_size=(150,150), batch_size=32)
 test_data = datagen.flow_from_dataframe(dataframe=test_labels, directory=test_dir, x_col="ID", y_col="Disease_Risk", class_mode="binary", target_size=(150,150), batch_size=32, shuffle=False)
 
-# Caractéristiques avec VGG16
+
 base_model = VGG16(weights='imagenet', include_top=False, pooling='avg')
 
 def extract_features(generator, sample_count):
@@ -72,7 +71,6 @@ vgg_model = Model(inputs=base_model_classification.input, outputs=predictions)
 
 vgg_model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-# Configuration de l'early stopping
 early_stopping = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 
 history = vgg_model.fit(train_data, epochs=10, validation_data=validation_data)
