@@ -1,6 +1,6 @@
 # cancer-eyes-project
 
-## Ceci est le code de la version non compressé du projet. Voici le lien du site déployé sur Azure : https://appeyess.azurewebsites.net/
+## Ceci est le code de la version non compressée du projet. Voici le lien du site déployé sur Azure : https://appeyess.azurewebsites.net/
 
 ### Prédiction du Cancer de l'Œil avec Vuejs par Martin LUCAS & Ahyl PRADHAN dans le cadre du projet DATACAMP
 
