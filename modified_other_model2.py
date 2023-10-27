@@ -6,10 +6,9 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.decomposition import PCA
-from tqdm import tqdm  # Pour la barre de progression
-from joblib import dump  # Pour sauvegarder les modèles
+from tqdm import tqdm
+from joblib import dump 
 
-# Chemins de fichiers
 train_csv_path = "eyes-dataset/Training_Set/Training_Set/RFMiD_Training_Labels.csv"
 validation_csv_path = "eyes-dataset/Evaluation_Set/Evaluation_Set/RFMiD_Validation_Labels.csv"
 test_csv_path = "eyes-dataset/Test_Set/Test_Set/RFMiD_Testing_Labels.csv"
@@ -25,8 +24,6 @@ train_labels['ID'] = train_labels['ID'].apply(lambda x: f"{x}.png")
 validation_labels['ID'] = validation_labels['ID'].apply(lambda x: f"{x}.png")
 test_labels['ID'] = test_labels['ID'].apply(lambda x: f"{x}.png")
 
-
-# Préparation des données
 def preprocess_data(df, directory):
     images = []
     labels = df["Disease_Risk"].values
@@ -72,7 +69,7 @@ print(f"Logistic Regression accuracy: {accuracy * 100:.2f}%")
 dump(logreg, "models/Logistic Regression.joblib")
 
 # PCA + Random Forest
-pca = PCA(n_components=100)  # Réduisez à 100 composants principaux
+pca = PCA(n_components=100)
 train_images_pca = pca.fit_transform(train_images)
 test_images_pca = pca.transform(test_images)
 

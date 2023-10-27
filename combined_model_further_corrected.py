@@ -66,7 +66,7 @@ model.add(MaxPooling2D((2, 2)))
 
 model.add(Flatten())
 model.add(Dense(512, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))  # Utilisation de la fonction sigmoid pour une tâche de classification binaire
+model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
@@ -128,7 +128,6 @@ test_images, test_labels = preprocess_data(test_labels, test_dir)
 
 validation_scores = {}
 validation_scores["CNN"] = accuracy
-# This dictionary will hold the validation scores for each model
 
 
 # Random Forest
@@ -215,7 +214,6 @@ all_results['RandomForestClassifier'] = results
 validation_accuracy_rf_pca = rf_pca.score(validation_images_pca, validation_labels)
 validation_scores["PCA + Random Forest"] = validation_accuracy_rf_pca
 
-# Plotting the validation scores
 plt.figure(figsize=(10, 6))
 plt.bar(validation_scores.keys(), validation_scores.values(), color=['blue', 'green', 'red', 'cyan', 'purple'])
 plt.ylabel('Accuracy')
@@ -227,18 +225,6 @@ plt.show()
 
 
 
-
-
-
-
-
-# Placeholder for storing results
-
-
-
-
-# Plotting the results using grouped bar charts
-
 import numpy as np
 
 labels = list(all_results.keys())
@@ -249,8 +235,8 @@ f1 = [all_results[model]['f1'] for model in labels]
 training_time = [all_results[model]['training_time'] for model in labels]
 prediction_time = [all_results[model]['prediction_time'] for model in labels]
 
-x = np.arange(len(labels))  # the label locations
-width = 0.15  # the width of the bars
+x = np.arange(len(labels))
+width = 0.15
 
 fig, ax1 = plt.subplots(figsize=(15, 8))
 

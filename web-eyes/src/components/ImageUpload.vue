@@ -1,6 +1,5 @@
 <template>
     <div>
-      <!-- Hide the original input and add a label to act as the button -->
       <input type="file" id="fileUpload" ref="fileInput" @change="uploadImage" style="display: none" />
       <center>
       <label for="fileUpload" class="upload-btn">Upload your file</label>
@@ -55,7 +54,6 @@
   </script>
 
 <style>
-/* Base styling */
 * {
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
@@ -65,35 +63,27 @@
   color: #FFF;
   font-weight: 700;
   text-align: center;
-  /* display: flex;
-  align-items: center; 
-  justify-content: center; 
-  height: 100%;
-  width: 100%;
-  position: absolute; */
 }
 
-/* Styling the label to look like a modern button */
 .upload-btn {
   display: inline-block;
-  padding: 20px 40px;  /* Increased padding for a bigger button */
-  background: linear-gradient(45deg, #6AB1D7, #33D9B2);  /* Gradient background */
+  padding: 20px 40px;
+  background: linear-gradient(45deg, #6AB1D7, #33D9B2);
   color: #FFF;
   border: none;
-  border-radius: 50px;  /* Very rounded corners */
+  border-radius: 50px;
   cursor: pointer;
-  font-weight: 700;  /* Extra bold */
-  font-size: 20px;  /* Bigger font size */
-  box-shadow: 0px 4px 30px rgba(0,0,0,0.2);  /* Noticeable shadow */
+  font-weight: 700;
+  font-size: 20px;
+  box-shadow: 0px 4px 30px rgba(0,0,0,0.2);
   text-align: center;
   text-decoration: none;
   outline: none;
   transition: all 0.3s ease;
-  position: relative;  /* For pseudo-elements */
-  overflow: hidden;  /* Clip the overflowing parts of the pseudo-elements */
+  position: relative;
+  overflow: hidden;
 }
 
-/* Adding pseudo-elements for additional animation layers */
 .upload-btn:before, .upload-btn:after {
   content: '';
   position: absolute;
@@ -101,16 +91,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);  /* Slight white tint */
+  background: rgba(255, 255, 255, 0.2);
   z-index: 1;
   transform: scale(0);
   transition: all 0.5s;
 }
 
-/* Hover animations */
 .upload-btn:hover {
-  box-shadow: 0px 6px 45px rgba(0,0,0,0.25);  /* Intensified shadow */
-  transform: translateY(-5px);  /* Lift up effect */
+  box-shadow: 0px 6px 45px rgba(0,0,0,0.25);
+  transform: translateY(-5px);
 }
 
 .upload-btn:hover:before {
@@ -123,7 +112,6 @@
   opacity: 0.4;
 }
 
-/* Keyframes for a wave effect */
 @keyframes wave-animation {
   0% {
     transform: translateX(-100%);
@@ -133,18 +121,17 @@
   }
 }
 
-/* Styling for image and text */
 img {
-  max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
-  max-height: 400px; /* Limite la hauteur de l'image*/
-  display: block; /* Assurez-vous que l'image s'affiche en tant que bloc */
-  margin: 0 auto; /* Centre l'image horizontalement */
-  border-radius: 8px; /* Coins arrondis pour l'image */
-  max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
-  max-height: 400px; /* Limite la hauteur de l'image */
-  display: block; /* Assurez-vous que l'image s'affiche en tant que bloc */
-  margin: 0 auto; /* Centre l'image horizontalement */
-  border-radius: 8px; /* Coins arrondis pour l'image */
+  max-width: 100%;
+  max-height: 400px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  max-width: 100%;
+  max-height: 400px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
 }
 
 span {
@@ -161,23 +148,23 @@ h2 {
 }
 
 div[v-if="uploadedImage"] {
-  max-width: 100%; /* Assurez-vous qu'il ne dépasse pas la largeur du conteneur parent */
-  overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
-  border-radius: 8px; /* Coins arrondis pour le conteneur */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile pour le conteneur */
-  margin-top: 24px; /* Espacement au-dessus du conteneur */
-  padding: 16px; /* Espacement à l'intérieur du conteneur */
-  background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+  max-width: 100%;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 24px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 div[v-if="uploadedImage"] {
-  max-width: 100%; /* Assurez-vous qu'il ne dépasse pas la largeur du conteneur parent */
-  overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
-  border-radius: 8px; /* Coins arrondis pour le conteneur */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre subtile pour le conteneur */
-  margin-top: 24px; /* Espacement au-dessus du conteneur */
-  padding: 16px; /* Espacement à l'intérieur du conteneur */
-  background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+  max-width: 100%;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 24px;
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .result-container {
     margin-top: 30px;
@@ -199,8 +186,8 @@ div[v-if="uploadedImage"] {
     color: #FFF;
     font-weight: 700;
     display: flex;
-    align-items: center;  /* Aligner verticalement au centre */
-    justify-content: center;  /* Aligner horizontalement au centre */
+    align-items: center;
+    justify-content: center;
     height: 100%;
     width: 100%;
     position: absolute;

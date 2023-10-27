@@ -103,12 +103,9 @@ nav {
   width: 100%;
   padding: 15px 20px;
   background-color: black;
-  /* Fond presque opaque */
   backdrop-filter: blur(10px);
-  /* Effet de flou pour le fond */
   z-index: 1000;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  /* Ombre douce en bas */
   transition: background-color 0.3s ease;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -123,24 +120,20 @@ nav {
 }
 
 .brand {
-  /* color: var(--primary-color); */
   color: #fff;
   font-size: 1.7em;
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 1px;
-  /* Espacement des lettres pour un look premium */
   transition: color 0.3s ease;
   
 }
 
 .brand:hover {
   color: grey;
-  /* Changement de couleur au survol */
   background-image: linear-gradient(45deg, #6AB1D7, #33D9B2);
-  color: transparent; /* Rendre le texte transparent pour montrer le gradient en arrière-plan */
+  color: transparent;
   
-  /* Ces propriétés garantissent que le gradient n'apparaît que sur le texte */
   -webkit-background-clip: text;
   background-clip: text;
   
@@ -157,22 +150,17 @@ nav {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  /* Poids de police semi-gras */
   padding: 5px 10px;
-  /* Espacement autour des liens pour un meilleur toucher/clic */
   border-radius: 5px;
-  /* Coins arrondis pour les effets de survol */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-links li a:hover {
   background-color: grey;
-  /* Fond doré au survol */
   color: #000;
-  /* Texte noir au survol */
 }
 
-/* Pour les écrans plus petits, augmentez la taille des liens pour une meilleure expérience tactile */
+
 @media (max-width: 768px) {
   .nav-links li a {
     padding: 10px 15px;
@@ -185,30 +173,27 @@ nav {
 }
 
 #EyeUpload::before {
-  pointer-events: none; /* Ajoutez cette ligne */
-  content: ""; /* Nécessaire pour rendre le pseudo-élément visible */
-  position: absolute; /* Positionne le pseudo-élément par rapport à la section */
+  pointer-events: none;
+  content: "";
+  position: absolute; 
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* Noir transparent */
-  transition: background-color 0.3s ease; /* Transition pour un effet doux */
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease; 
 }
 
 #EyeUpload:hover::before {
-  background-color: rgba(0, 0, 0, 0); /* Assombrit l'image lors du survol */
+  background-color: rgba(0, 0, 0, 0);
 }
 
 #EyeUpload:hover {
   transform: scale(1.02);
-  /* background-color: rgba(255, 255, 255, 0.08);
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05)); */
 }
 section {
   width: 100%;
   min-height: 100vh;
-  /* Changed from height to min-height */
   padding: 60px 30px;
   display: flex;
   flex-direction: column;
@@ -216,37 +201,34 @@ section {
   align-items: center;
   overflow: hidden;
   transition: background-color 1s, transform 0.5s;
-  /* background-color: rgba(255, 255, 255, 0.05); */
-  /* mettre une image en fond */
   background-image: url("./assets/fond1.jpg");
-  background-size: cover; /* Assurez-vous que l'image couvre la section entière */
-  background-position: center; /* Centrez l'image */
-  background-repeat: no-repeat; /* Empêchez l'image de se répéter */
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
   border-bottom: 3px solid rgba(255, 255, 255, 0.1);
   position: relative;
-  /* Added for potential absolute positioned children */
+ 
 }
 
 section::before {
-  pointer-events: none; /* Ajoutez cette ligne */
-  content: ""; /* Nécessaire pour rendre le pseudo-élément visible */
-  position: absolute; /* Positionne le pseudo-élément par rapport à la section */
+  pointer-events: none;
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* Noir transparent */
-  transition: background-color 0.3s ease; /* Transition pour un effet doux */
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease; 
 }
 
 section:hover::before {
-  background-color: rgba(0, 0, 0, 0); /* Assombrit l'image lors du survol */
+  background-color: rgba(0, 0, 0, 0);
 }
 
 section:hover {
   transform: scale(1.02);
-  /* background-color: rgba(255, 255, 255, 0.08);
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05)); */
+
 }
 
 h1 {
@@ -259,14 +241,14 @@ h1 {
   transition: transform 0.3s ease, color 0.3s;
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
-  /* Utilisation d'un poids de police plus lourd pour un impact visuel */
+
 }
 
 h1:hover {
   transform: scale(1.08);
-  /* color: #FFD700; */
+
   color: grey;
-  /* Gold */
+
 }
 
 p {

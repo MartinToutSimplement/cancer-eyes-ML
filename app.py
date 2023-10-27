@@ -18,7 +18,6 @@ app = Flask(__name__)
 CORS(app)
 
 
-# Chargement du modèle
 model_path = 'models/eyes_model.h5'
 model = load_model(model_path)
 
@@ -28,20 +27,14 @@ def predict():
     if not file:
         return jsonify({'error': 'no file'}), 400
 
-    # Convertir l'objet FileStorage en BytesIO
     image_stream = io.BytesIO(file.read())
     image = load_img(image_stream, target_size=(150, 150))
     image = img_to_array(image)
     image = np.expand_dims(image, axis=0)
     image = image / 255.0  # normaliser comme lors de l'entraînement
 
-    # Prédire l'état de l'œil
     prediction = model.predict(image)
     
-    # La sortie est une valeur entre 0 et 1 à cause de la fonction sigmoid. 
-    # On peut considérer qu'une valeur > 0.5 signifie que l'œil est cancéreux.
-    
-    # result = 'Cancerous' if prediction[0][0] > 0.5 else 'Healthy'
     result = prediction[0][0]
     result = float(result)
     return jsonify({'result': result})

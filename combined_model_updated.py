@@ -105,8 +105,6 @@ test_images, test_labels = preprocess_data(test_labels, test_dir)
 
 validation_scores = {}
 validation_scores["CNN"] = accuracy
-# This dictionary will hold the validation scores for each model
-
 
 # Random Forest
 rf = start_time = time.time()
@@ -192,7 +190,6 @@ all_results['RandomForestClassifier'] = results
 validation_accuracy_rf_pca = rf_pca.score(validation_images_pca, validation_labels)
 validation_scores["PCA + Random Forest"] = validation_accuracy_rf_pca
 
-# Plotting the validation scores
 plt.figure(figsize=(10, 6))
 plt.bar(validation_scores.keys(), validation_scores.values(), color=['blue', 'green', 'red', 'cyan', 'purple'])
 plt.ylabel('Accuracy')
@@ -222,15 +219,8 @@ def calculate_metrics(y_true, y_pred, y_prob=None):
     return results
 
 
-
-# Placeholder for storing results
 all_results = {}
 
-
-
-# Plotting the results using grouped bar charts
-
-import numpy as np
 
 labels = list(all_results.keys())
 accuracy = [all_results[model]['accuracy'] for model in labels]
@@ -240,9 +230,8 @@ f1 = [all_results[model]['f1'] for model in labels]
 training_time = [all_results[model]['training_time'] for model in labels]
 prediction_time = [all_results[model]['prediction_time'] for model in labels]
 
-x = np.arange(len(labels))  # the label locations
-width = 0.15  # the width of the bars
-
+x = np.arange(len(labels)) 
+width = 0.15 
 fig, ax1 = plt.subplots(figsize=(15, 8))
 
 color = 'tab:blue'
