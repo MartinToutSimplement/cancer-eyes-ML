@@ -1,7 +1,6 @@
 import pandas as pd
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-# Chemins de fichiers
 train_csv_path = "eyes-dataset/Training_Set/Training_Set/RFMiD_Training_Labels.csv"
 validation_csv_path = "eyes-dataset/Evaluation_Set/Evaluation_Set/RFMiD_Validation_Labels.csv"
 test_csv_path = "eyes-dataset/Test_Set/Test_Set/RFMiD_Testing_Labels.csv"
@@ -40,7 +39,7 @@ model.add(MaxPooling2D((2, 2)))
 
 model.add(Flatten())
 model.add(Dense(512, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))  # Utilisation de la fonction sigmoid pour une tâche de classification binaire
+model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 

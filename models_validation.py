@@ -7,11 +7,9 @@ import joblib
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-# Chemins de fichiers
 validation_csv_path = "eyes-dataset/Evaluation_Set/Evaluation_Set/RFMiD_Validation_Labels.csv"
 validation_dir = "eyes-dataset/Evaluation_Set/Evaluation_Set/Validation"
 
-# Fonction pour pré-traiter les données
 def preprocess_data(df, directory):
     images = []
     labels = df["Disease_Risk"].values
@@ -25,16 +23,14 @@ def preprocess_data(df, directory):
     
     return np.array(images), labels
 
-# Chargement et préparation des données de validation
 validation_labels = pd.read_csv(validation_csv_path, dtype={'ID': str, 'Disease_Risk': str})
 validation_labels['ID'] = validation_labels['ID'].apply(lambda x: f"{x}.png")
 validation_images, validation_labels = preprocess_data(validation_labels, validation_dir)
 
-# Charger et évaluer chaque modèle
 models = {
     "Random Forest": joblib.load("models/Random Forest.joblib"),
     "SVM": joblib.load("models/SVM.joblib"),
-    "K-NN": None,  # K-NN n'est pas sauvegardé précédemment
+    "K-NN": None,
     "Logistic Regression": joblib.load("models/Logistic Regression.joblib"),
     "PCA + Random Forest": joblib.load("models/PCA + Random Forest.joblib"),
     "eyes_model": load_model("models/eyes_model.h5")
@@ -50,9 +46,8 @@ for name, model in models.items():
             accuracy = model.score(validation_images, validation_labels)
         scores[name] = accuracy
     else:
-        scores[name] = 0  # Mettre à 0 si le modèle n'est pas chargé
+        scores[name] = 0
 
-# Afficher les scores avec un barChart
 names = list(scores.keys())
 values = list(scores.values())
 

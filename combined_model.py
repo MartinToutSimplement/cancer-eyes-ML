@@ -63,7 +63,7 @@ model.add(MaxPooling2D((2, 2)))
 
 model.add(Flatten())
 model.add(Dense(512, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))  # Utilisation de la fonction sigmoid pour une tâche de classification binaire
+model.add(Dense(1, activation='sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
@@ -95,7 +95,6 @@ test_images, test_labels = preprocess_data(test_labels, test_dir)
 
 validation_scores = {}
 validation_scores["CNN"] = accuracy
-# This dictionary will hold the validation scores for each model
 
 
 # Random Forest
@@ -132,7 +131,6 @@ rf_pca.fit(train_images_pca, train_labels)
 validation_accuracy_rf_pca = rf_pca.score(validation_images_pca, validation_labels)
 validation_scores["PCA + Random Forest"] = validation_accuracy_rf_pca
 
-# Plotting the validation scores
 plt.figure(figsize=(10, 6))
 plt.bar(validation_scores.keys(), validation_scores.values(), color=['blue', 'green', 'red', 'cyan', 'purple'])
 plt.ylabel('Accuracy')

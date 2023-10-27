@@ -41,20 +41,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0; /* Par défaut, il sera transparent */
-  transition: opacity 0.3s ease; /* Ajout d'une transition pour l'opacité */
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .scroll-instruction {
   position: absolute;
-  bottom: 20px; /* Adjust as needed */
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 18px; /* Adjust as needed */
+  font-size: 18px;
   opacity: 1; 
   transition: opacity 0.3s ease;
-  z-index: 2; /* To make sure it's above the image but below the overlay */
+  z-index: 2;
 }
 
 
@@ -89,11 +89,11 @@ export default {
           this.scale = 4;
           this.fadeOpacity = 1;
           this.imageUploadOpacity = 1;
-          this.instructionOpacity = 0; // Hide instruction text
+          this.instructionOpacity = 0;
         } else {
           this.fadeOpacity = (this.scale - 2) / 2;
           this.imageUploadOpacity = 0;
-          this.instructionOpacity = 1 - (this.scale - 1) / 2; // Adjust instruction opacity based on scale
+          this.instructionOpacity = 1 - (this.scale - 1) / 2;
         }
 
       } else {
@@ -102,7 +102,7 @@ export default {
         }
         this.fadeOpacity = 0;
         this.imageUploadOpacity = 0;
-        this.instructionOpacity = 1; // Show instruction text
+        this.instructionOpacity = 1;
       }
     }
   },
